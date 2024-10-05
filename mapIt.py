@@ -4,14 +4,18 @@
 
 
 
-import webbrowser, sys
+import webbrowser, sys, pyperclip
 
+url = "http://www.google.com/maps/place/"
 if len(sys.argv) > 1:
     #Get address from command line. 
     address = ' '.join(sys.argv[1:])
+    print(f"Command Line: {address}")
 
-# TODO: Get Address from clipboard
+else:
+    #Get address from clipboard
+    address = pyperclip.paste()
+    print(f"Clipboard: {address}")
 
-
-webbrowser.open('http://inventwithpython.com/')
+webbrowser.open(f"{url} + {address}")
 
